@@ -1,10 +1,12 @@
 const EmojiButton = ({ emoji, handleClickEmoji }) => {
 
+  const handleClick = () => {
+    handleClickEmoji(emoji)
+  }
+
   return (
-    <button onClick={handleClickEmoji}>{emoji.symbol}</button>
+    <button onClick={handleClick}>{emoji.symbol}</button>
   )
 }
 
 export default EmojiButton
-
-// TODO: Resolver error al clickar

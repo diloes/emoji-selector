@@ -6,7 +6,7 @@ import EmojiSearch from './EmojiSearch'
 const EmojiPickerContainer = ({ handleClickEmoji }) => {
 
   const [emojis, setEmojis] = useState(emojiList)
-
+ 
   // Función de búsqueda, esta va a funcionar cuando estemos escribiendo en el input
   // y esta se ejecuta en el componente EmojiSearch, se la pasamos por props
   const handleSearch = e => {

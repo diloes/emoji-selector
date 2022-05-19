@@ -17,7 +17,7 @@ const EmojiPickerInput = () => {
       <input ref={refInput} />
       <button onClick={handleClick}>Click</button>
       {/* Pasamos el ref a un componente hijo */}
-      <EmojiPicker refInput={refInput} /> 
+      <EmojiPicker ref={refInput} /> 
     </div>
   )
 }

@@ -1,6 +1,5 @@
-import { useState, forwardRef } from "react"
+import { useState, forwardRef, useRef, useEffect } from "react"
 import EmojiPickerContainer from "./EmojiPickerContainer"
-import { data as emojiList } from '../../data'
 
 // Recibimos los props y además como un parámetro añadido el ref
 export const EmojiPicker = (props, refInput) => {
@@ -25,10 +24,28 @@ export const EmojiPicker = (props, refInput) => {
 
     // agregamos el emoji en medio, donde está el cursor
     refInput.current.value = prev + emoji.symbol + next
+    // esto para que aparezca el cursor despuñes del emoji
+    refInput.current.selectionStart = cursorPosition + emoji.symbol.length
+    refInput.current.selectionEnd = cursorPosition + emoji.symbol.length
+    refInput.current.focus()
   }
 
+  const containerRef = useRef(null)
+
+  // Para resetear:
+  useEffect(() => {
+    // evento de click en la ventana
+    window.addEventListener('click', e => {
+      // si damos click a un elemento que no sea el containerRef 
+      if(!containerRef.current.contains(e.target)){
+        // cerramos la ventana con los emojis
+        setIsOpen(false)
+      }
+    })
+  },[])
+  
   return (
-    <div>
+    <div ref={containerRef}>
       <button onClick={handleClickOpen}>😁</button>
       {
         isOpen
