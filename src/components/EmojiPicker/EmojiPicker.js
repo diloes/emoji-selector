@@ -1,6 +1,8 @@
 import { useState, forwardRef, useRef, useEffect } from "react"
 import EmojiPickerContainer from "./EmojiPickerContainer"
 
+import styles from "./emojiPicker.module.scss"
+
 // Recibimos los props y además como un parámetro añadido el ref
 export const EmojiPicker = (props, refInput) => {
   
@@ -44,9 +46,9 @@ export const EmojiPicker = (props, refInput) => {
     })
   },[])
   
-  return (
-    <div ref={containerRef}>
-      <button onClick={handleClickOpen}>😁</button>
+  return ( 
+    <div ref={containerRef} className={styles.inputContainer}>
+      <button onClick={handleClickOpen} className={styles.emojiPickerButton}>😁</button>
       {
         isOpen
         ? <EmojiPickerContainer handleClickEmoji={handleClickEmoji} />

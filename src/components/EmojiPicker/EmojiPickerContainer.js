@@ -3,6 +3,8 @@ import { data as emojiList } from '../../data'
 import EmojiButton from './EmojiButton'
 import EmojiSearch from './EmojiSearch'
 
+import styles from "./emojiPicker.module.scss"
+
 const EmojiPickerContainer = ({ handleClickEmoji }) => {
 
   const [emojis, setEmojis] = useState(emojiList)
@@ -31,9 +33,9 @@ const EmojiPickerContainer = ({ handleClickEmoji }) => {
   }
 
   return (
-    <div> 
+    <div className={styles.emojiPickerContainer}> 
       <EmojiSearch onSearch={handleSearch} />
-      <div>
+      <div className={styles.emojiList}>
         { 
           emojis.map( emoji => (
             <EmojiButton
