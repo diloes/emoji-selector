@@ -1,3 +1,22 @@
+# Selector de emojis
+Esta app hecha en React.js sirve para seleccionar emojis de una lista de emojis.
+Tiene el objetivo de practicar con el hook useRef. 
+
+## Componentes
+
+EmojiPickerInput -> EmojiPicker -> EmojiPickerContainer -> EmojiButton y EmojiSearch
+
+- **EmojiPickerInput**: Componente principal que muestra un input, un botón y llama a EmojiPicker. 
+Inicia el useRef.
+- **EmojiPicker**: Componente que muestra un botón que cambiar el estado de 'isOpen' y según este,
+muestra a EmojiPickerContainer o un string vacío.
+- **EmojiPickerContainer**: Componente que itera sobre la lista de emojis que tenemos en la variable
+estado 'emojis' y muestra por cada uno el componente EmojiButton. También muestra EmojiSearch. Al que
+le pasa la función por props 'handleSearch' que se encarga de buscar los emojis que coincidan con el
+texto que se escribe en el input.
+- **EmojiPickerContainer**:
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
